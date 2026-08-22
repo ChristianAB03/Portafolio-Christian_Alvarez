@@ -1,8 +1,22 @@
-# Portafolio · Software Engineer
+# Portafolio · Christian Álvarez
 
-Portafolio personal en **React + Vite + Framer Motion**. Dark, minimalista, mobile-first.
+Portafolio personal de **Software Engineer**. Estética editorial dark, minimalista y responsive, construida con **React + Vite + Framer Motion**.
 
-## Arrancar
+🔗 **En vivo:** _añade aquí la URL cuando despliegues_ · `https://…vercel.app`
+
+---
+
+## ✨ Qué incluye
+
+- **Hero** con nameplate, glow que reacciona al cursor y "engineering snapshot".
+- **Selected Work** — case studies con visual grande, meta (rol/tech/año) y modal de detalle.
+- **Experience** — timeline editorial (freelance + roles).
+- **Projects** — trabajo adicional; portada real o generada por CSS si falta la imagen.
+- **Stack** — panel compacto con _readout_ interactivo (hover/tap sobre cada tecnología).
+- **How I build**, **About** y **Contact** (WhatsApp, LinkedIn, GitHub, email).
+- Cursor personalizado, líneas que se expanden, aparición al hacer scroll — todo sutil.
+
+## 🚀 Arrancar
 
 ```bash
 npm install
@@ -16,7 +30,7 @@ npm run build    # genera /dist
 npm run preview  # previsualiza el build
 ```
 
-## Cómo personalizar
+## 📝 Personalizar
 
 Casi todo el contenido vive en **un solo archivo**:
 
@@ -24,39 +38,66 @@ Casi todo el contenido vive en **un solo archivo**:
 src/data/content.js
 ```
 
-Ahí editas: nombre, email, LinkedIn, GitHub, ruta del CV, métricas del hero,
-experiencia, proyectos, stack y el texto de "About".
+Ahí editas: datos de contacto, snapshot del hero, case studies (`featured`),
+experiencia (`experience`), proyectos (`additionalProjects`), `stack`,
+`principles` y el texto de `about`.
 
-Otros puntos:
+**Imágenes de proyecto** — guárdalas en `public/projects/` (WebP, 16:9, ideal
+1600×900) y referencia la ruta en el campo `image` del proyecto:
 
-- **Tu CV**: coloca `cv.pdf` en `/public/` (el botón ya apunta a `/cv.pdf`).
-- **Capturas de proyectos**: hoy los mockups se generan con CSS. Para usar imágenes
-  reales, reemplaza el bloque `.proj-img` en `src/components/Projects.jsx` por una
-  `<img>` y guarda las imágenes en `/public/`.
-- **Colores y tipografías**: variables CSS al inicio de `src/index.css` (`:root`).
-- **Favicon**: `/public/favicon.svg`.
+```js
+image: "/projects/mi-proyecto.webp",   // ruta desde la raíz, SIN /public
+```
 
-## Estructura
+Si dejas `image: ""`, se muestra una **portada generada** (retícula + monograma).
+
+**Tu CV** — coloca el PDF en `public/cv.pdf` y cambia el interruptor en
+`content.js`:
+
+```js
+cvReady: true,   // muestra los botones "Download CV"
+```
+
+Mientras esté en `false`, los botones de descarga se ocultan.
+
+**Colores y tipografías** — tokens CSS al inicio de `src/index.css` (`:root`).
+Fuentes: Space Grotesk (títulos), Inter (texto), JetBrains Mono (labels).
+
+## 📁 Estructura
 
 ```
 src/
-  data/content.js        ← TODO tu contenido
+  data/content.js        ← TODO el contenido editable
   index.css              ← sistema de diseño (tokens + estilos)
   App.jsx                ← composición de secciones
   components/
-    Navbar.jsx  Hero.jsx  Experience.jsx  Projects.jsx
-    TechStack.jsx  About.jsx  Contact.jsx  Footer.jsx
-    Reveal.jsx           ← animación de entrada reutilizable
+    Navbar.jsx  Hero.jsx  FeaturedWork.jsx  Experience.jsx
+    Projects.jsx  TechStack.jsx  Principles.jsx  About.jsx
+    Contact.jsx  Footer.jsx
+    CaseStudyModal.jsx   ← modal de case study
+    Media.jsx            ← imagen de proyecto / portada generada
+    SectionHead.jsx      ← cabecera de sección reutilizable
+    Reveal.jsx           ← aparición al entrar en viewport
+    Cursor.jsx  Chrome.jsx   ← cursor y capas de fondo
     icons.jsx            ← iconos SVG inline
+public/
+  projects/              ← capturas de proyectos (.webp)
+  cv.pdf                 ← tu CV (opcional; ver cvReady)
 ```
 
-## Deploy
+## ☁️ Deploy
 
 Funciona tal cual en **Vercel** o **Netlify**: importa el repo, framework
-detectado = Vite, build `npm run build`, output `dist`. Sin configuración extra.
+detectado = **Vite**, build `npm run build`, output `dist`. Sin configuración extra.
+Cada `git push` a `main` redespliega automáticamente.
 
-## Accesibilidad / rendimiento
+## ♿ Accesibilidad y rendimiento
 
 - `prefers-reduced-motion` respetado (Framer Motion + CSS).
-- Foco de teclado visible.
+- Foco de teclado visible; contacto y stack navegables por teclado.
+- Contraste AA en textos sobre el fondo.
 - Sin dependencias pesadas: React, ReactDOM y Framer Motion.
+
+---
+
+© 2026 Christian Álvarez
