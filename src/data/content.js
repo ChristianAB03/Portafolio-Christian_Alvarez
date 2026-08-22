@@ -20,7 +20,7 @@ export const profile = {
   cvName: "Christian-Alvarez-CV.pdf",
   // Cambia a true cuando subas public/cv.pdf: entonces aparecen los botones
   // "Download CV". Mientras esté en false, se ocultan (evita descargar un HTML roto).
-  cvReady: false,
+  cvReady: true,
   available: "Available for Software Engineer roles · 2026",
   heroLead:
     "Software Engineer enfocado en construir aplicaciones web modernas y soluciones impulsadas por IA. Experiencia desarrollando software en producción con React, TypeScript, Python y OpenAI para entornos empresariales y clientes reales.",

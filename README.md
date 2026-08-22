@@ -4,7 +4,7 @@
 
 Personal portfolio built with **React + Vite + Framer Motion**. Editorial, dark, minimal and fully responsive.
 
-🔗 **Live:** _add your URL here after deploying_ · `https://…vercel.app`
+🔗 **Live:** [christianalvarez-portafolio.vercel.app](https://christianalvarez-portafolio.vercel.app/)
 📍 Barranquilla, Colombia
 
 ---
