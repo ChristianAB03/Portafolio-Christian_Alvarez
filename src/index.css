@@ -36,7 +36,7 @@
   /* tipografía */
   --sans:'Inter',system-ui,-apple-system,sans-serif;
   --display:'Space Grotesk','Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;
+  --mono:'Martian Mono',ui-monospace,SFMono-Regular,monospace;
 
   --ease:cubic-bezier(.2,.7,.2,1);
 }
@@ -208,8 +208,30 @@ ul,ol{list-style:none}
   display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);
 }
-.dot{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(62,207,142,.5);animation:pulse 2.6s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,207,142,.45)}70%{box-shadow:0 0 0 7px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
+/* medidor de señal "en vivo" — reemplaza el punto que palpitaba */
+.sig{display:inline-flex;align-items:flex-end;gap:2px;height:12px;--sig:var(--ok)}
+.sig i{
+  width:2px;height:35%;border-radius:1px;background:var(--sig);
+  box-shadow:0 0 7px -1px var(--sig);
+  transform-origin:bottom;animation:sig 1.5s var(--ease) infinite;
+}
+.sig i:nth-child(2){animation-delay:.2s}
+.sig i:nth-child(3){animation-delay:.4s;--sig:var(--blue-lit)}
+.sig i:nth-child(4){animation-delay:.6s}
+@keyframes sig{0%,100%{height:28%;opacity:.5}50%{height:100%;opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .sig i{animation:none;opacity:1}
+  .sig i:nth-child(1){height:42%}
+  .sig i:nth-child(2){height:66%}
+  .sig i:nth-child(3){height:88%}
+  .sig i:nth-child(4){height:100%}
+}
+/* punto de estado secundario (timeline "Current", modal) — glow estable, sin anillo */
+.dot{
+  width:6px;height:6px;border-radius:50%;background:var(--ok);
+  box-shadow:0 0 8px -1px var(--ok);animation:breathe 2.4s var(--ease) infinite;
+}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
 @keyframes blink{50%{opacity:0}}
 
 .award{

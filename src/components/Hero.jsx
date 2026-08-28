@@ -77,7 +77,10 @@ export default function Hero() {
             </motion.div>
 
             <motion.div className="hero-state" {...fade(0.05)}>
-              <span className="state"><span className="dot" />{profile.available}</span>
+              <span className="state">
+                <span className="sig" aria-hidden="true"><i /><i /><i /><i /></span>
+                {profile.available}
+              </span>
               <i className="ln" aria-hidden="true" />
             </motion.div>
 
