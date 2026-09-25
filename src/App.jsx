@@ -1,34 +1,31 @@
 import { MotionConfig } from "framer-motion";
-import Chrome from "./components/Chrome";
-import Cursor from "./components/Cursor";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import FeaturedWork from "./components/FeaturedWork";
+import BrandNav from "./components/BrandNav";
+import BrandHero from "./components/BrandHero";
+import SelectedWork from "./components/SelectedWork";
+import Experiments from "./components/Experiments";
 import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import TechStack from "./components/TechStack";
-import Principles from "./components/Principles";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Building from "./components/Building";
+import Views, { ContinueNav } from "./components/Views";
+import { LangProvider } from "./i18n";
 
+// Rediseño en curso (rama redesign): Nav, Hero, Selected Work, Experiments,
+// Experience y Building ya son la nueva marca. About y Contact son vistas
+// propias (Views.jsx) sobre la página; el footer vive dentro de Contact.
 export default function App() {
   return (
+    <LangProvider>
     <MotionConfig reducedMotion="user">
-      <Chrome />
-      <Cursor />
-      <Navbar />
+      <BrandNav />
       <main>
-        <Hero />
-        <FeaturedWork />
+        <BrandHero />
+        <SelectedWork />
+        <Experiments />
         <Experience />
-        <Projects />
-        <TechStack />
-        <Principles />
-        <About />
-        <Contact />
+        <Building />
+        <ContinueNav />
       </main>
-      <Footer />
+      <Views />
     </MotionConfig>
+    </LangProvider>
   );
 }
