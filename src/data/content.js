@@ -536,7 +536,7 @@ export const featured = [
     meta: [
       { k: "role", v: t("Full-stack · solo", "Full-stack · en solitario") },
       { k: "tech", v: "React · Express · MongoDB" },
-      { k: "year", v: "2026" },
+      { k: "year", v: "2025" },
       { k: "status", v: t("Live demo", "Demo en vivo"), live: true },
     ],
     summary:
@@ -824,11 +824,12 @@ export const building = [
     ),
     image: "/projects/color-factory.webp",
     alt: t(
-      "Color Factory product customiser: the heading Personaliza tu producto, a black t-shirt preview and a grid of products to choose from.",
-      "Personalizador de productos de Color Factory: el encabezado Personaliza tu producto, la vista previa de una camiseta negra y una cuadrícula de productos para elegir."
+      "Color Factory product page: the heading Camisa de algodón next to a black t-shirt preview, beside the numbered steps to choose colour, quantity, print placement and design.",
+      "Página de producto de Color Factory: el titular Camisa de algodón junto a la vista previa de una camiseta negra, al lado de los pasos numerados para elegir color, cantidad, ubicación del estampado y diseño."
     ),
-    // encuadre dentro del marco (object-position)
-    crop: "36% 0",
+    // encuadre dentro del marco (object-position): el marco es 4:5 y la captura
+    // apaisada, así que se ancla a la izquierda para no cortar logo ni titular
+    crop: "0% 0",
     description: t(
       "Development of an ecommerce platform for a printing and customisation brand, with a configurable catalogue, visual product customiser, design management, orders, online payments and production tracking.",
       "Desarrollo de una plataforma ecommerce para una marca de impresión y personalización, con catálogo configurable, personalizador visual de productos, gestión de diseños, pedidos, pagos en línea y seguimiento de producción."
